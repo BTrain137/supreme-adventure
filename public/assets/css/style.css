@@ -1,0 +1,288 @@
+@font-face {
+    font-family: "MrsEavesAllPetiteCaps Regular";
+    font-style: normal;
+    font-weight: 500;
+    src: local("MrsEavesAllPetiteCaps"), local('MrsEavesAllPetiteCaps'), url("../fonts/MrsEavesAllPetiteCaps-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "MrsEavesAllPetiteCaps";
+    font-style: normal;
+    font-weight: 500;
+    src: local("MrsEavesAllPetiteCaps"), local('MrsEavesAllPetiteCaps'), url("../fonts/MrsEavesAllPetiteCaps-Regular.ttf") format('truetype');
+}
+
+  @font-face {
+    font-family: "Quickpen Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Quickpen"), local('Quickpen'), url("../fonts/Quickpen-Regular.otf") format('opentype');
+}
+
+@font-face {
+    font-family: "Quickpen";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Quickpen"), local('Quickpen'), url("../fonts/Quickpen-Regular.otf") format('opentype');
+}
+
+body {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    background-color: white;
+    padding-top: 20px;
+    margin-left: -15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 20px 10px;
+    font-weight: 100;
+    font-family: "BodoniBertholdBQ RegSC";
+}
+
+nav a:hover {
+    color: #AC7663;
+}
+
+.active {
+    color: #AC7663;
+}
+
+.banner {
+    margin-bottom: -16%;
+    min-height: 34rem;
+}
+
+.name__container {
+    position: absolute;
+    top: 175px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    
+}
+
+.banner__image {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+}
+
+.names {
+    font-family: "BodoniBertholdBQ RegSC";
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 54px;
+    color: #403a34;
+    margin: 0;
+}
+
+.and {
+    font-family: "Quickpen Regular";
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    text-transform: lowercase;
+    letter-spacing: normal;
+    font-size: 27.2px;
+    color: #403a34;
+}
+
+.font-page__image--section,
+.our-story__section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.front-page__image--container {
+    width: 70%;
+    overflow: hidden;
+    position: relative;            
+    box-sizing: border-box;
+    border: solid 8px #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+}
+
+.font-page__image {
+    display: block;
+    width: 120%;
+    margin-left: -10%;
+}
+
+.date__section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+    width: 93%;
+    margin: 4% auto;
+    min-height: 175px;
+}
+
+.thank-you-message {
+    font-family: "Quickpen Regular";
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.4;
+    text-transform: none;
+    letter-spacing: 1px;
+    font-size: 22.4px;
+    color: #403a34;
+    margin: 0;
+    width: 100%;
+}
+
+.our-story__container {
+    text-align: center;
+}
+
+.our-story__heading,
+.date,
+.our-story {
+    font-family: "MrsEavesAllPetiteCaps Regular";
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 54px;
+    color: #403a34;
+    line-height: 0.5em;
+}
+
+.our-story__image {
+    margin: -7rem 0 -3rem 0;
+    width: 23%;
+}
+
+.our-story {
+    font-family: "BodoniBertholdBQ RegSC";
+    text-transform: none;
+    font-size: 25px;
+    display: inline-block;
+    width: 70%;
+    line-height: 1.2em;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 18px;
+    background-color: #E5C8CC;
+}
+
+/* wedding-photo */
+
+.upload-photo__section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#file-input {
+    display: block;
+    margin: 30px auto;
+}
+
+#preview {
+    max-width: 200px;
+}
+
+
+@media only screen and (max-width: 990px) {
+    .banner {
+        min-height: 29rem;
+    }
+
+    .names {
+        font-size: 45px;
+    }
+
+    .front-page__image--container {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 749px) {
+    .banner {
+        min-height: 22rem;
+    }
+
+    nav a {
+        font-size: 20px;
+        margin: 2px;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    .name__container {
+        top: 120px;
+    }
+
+    .names {
+        font-size: 40px;
+    }
+    
+    .our-story__heading,
+    .date {
+        font-size: 45px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .banner {
+        min-height: 20rem;
+    }
+
+    .name__container {
+        top: 110px;
+    }
+
+    .names {
+        font-size: 37px;
+    }
+    
+    .our-story__heading,
+    .date {
+        font-size: 38px;
+    }
+
+    .date__section {
+        min-height: unset;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .banner {
+        min-height: 16rem;
+    }
+    .name__container {
+        top: 88px;
+    } 
+    .names {
+        font-size: 32px;
+    }
+
+    .date__container {
+        margin-top: 5%;
+    }
+
+    .our-story__heading,
+    .date {
+        margin-top: 7%;
+    }
+}
