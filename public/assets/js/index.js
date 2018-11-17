@@ -1,14 +1,32 @@
+const body = document.querySelector('body');
+const loading = document.querySelector('.loading-background');
+
+function loadHeart() {
+    body.style.overflow = 'hidden';
+    loading.style.display = 'block';
+}
+
+function completeHeart() {
+    body.style.overflow = 'visible';
+    loading.style.display = 'none';
+}
 
 function uploadFile(file, signedRequest, url){
+    loadHeart();
     const xhr = new XMLHttpRequest();
     xhr.open('PUT', signedRequest);
     xhr.onreadystatechange = () => {
         if(xhr.readyState === 4){
             if(xhr.status === 200){
                 document.getElementById('preview').src = url;
+                document.getElementById('thank-you-message').innerHTML = "Thank you for sharing this will be posted in a few hours."
+                completeHeart();
             }
             else{
-                alert('Could not upload file.');
+                //TODO create alert via nodemailer or twilio
+                document.getElementById('preview').src = './assets/images/sorry.jpg';
+                document.getElementById('thank-you-message').innerHTML = "SORRY something happened! Let Kim or Bryan know something happened."
+                completeHeart();
             }
         }
     };
@@ -17,15 +35,18 @@ function uploadFile(file, signedRequest, url){
 
 function getSignedRequest(file){
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', `/sign-s3?file-name=${file.name}&file-type=${file.type}`);
+    xhr.open('GET', `/wedding-upload?file-name=${file.name}&file-type=${file.type}`);
     xhr.onreadystatechange = () => {
         if(xhr.readyState === 4){
             if(xhr.status === 200){
                 const response = JSON.parse(xhr.responseText);
                 uploadFile(file, response.signedRequest, response.url);
             }
-            else{
-                alert('Could not get signed URL.');
+            else {
+                //TODO create alert via nodemailer or twilio
+                document.getElementById('preview').src = './assets/images/sorry.jpg';
+                document.getElementById('thank-you-message').innerHTML = "SORRY something happened! Let Kim or Bryan know something happened."
+                completeHeart();
             }
         }
     };
