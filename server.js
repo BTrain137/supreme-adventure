@@ -28,23 +28,29 @@ app.get("/wedding-photos", (req, res) => {
     res.sendFile(path.join(__dirname, './public', 'wedding-photos.html'));
 });
 
-app.get('/get-engagement-photos', (req, res) =>{
+app.get('/place-engagement-photos', (req, res) =>{
   const params = {
     Bucket: process.env.S3_BUCKET,
-    MaxKeys: 2,
-    Prefix: 'engagement-photos/'
+    // MaxKeys: 2,
+    Prefix: 'engagement-photos-thumbnail/'
   };
 
   s3.listObjects(params, (err, data) => {
     if(err){
       console.log(err);
-      return res.end();
+      return res.sendStatus(500);
     }
 
+    //TODO get list of thumbnails on s3
+    //TODO store thumbnail url into MongoDB for load balancing
     console.log(data.Contents[0].Key);
   });
   res.send("hello world");
 });
+
+app.get('/engagement-thumbnail', (req, res) => {
+  //TODO users get thumbnail URL from MongoDB
+}); 
 
 app.get('/wedding-upload', (req, res) => {
   const pictureName = req.query['file-name']
@@ -80,6 +86,7 @@ app.get('/wedding-upload', (req, res) => {
   });
 });
 
+//test get list of photo from directory
 app.get('/list-photos', (req, res) => {
   const params = {
     Bucket: process.env.S3_BUCKET,
@@ -90,19 +97,20 @@ app.get('/list-photos', (req, res) => {
   s3.listObjects(params, (err, data) => {
     if(err){
       console.log(err);
-      return res.end();
+      return res.sendStatus(500);
     }
     console.log(data.Contents[0].Key);
   });
   res.send("hello world");
 });
 
+//test to get single photo
 app.get('/get-photos', (req, res) => {
 
   s3.getObject({Bucket: process.env.S3_BUCKET, Key: 'wedding/front-page-1.jpg'}, (err, data) => {
     if(err){
       console.log(err);
-      return res.end();
+      return res.sendStatus(500);
     }
 
     console.log(data);
