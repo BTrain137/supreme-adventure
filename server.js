@@ -13,15 +13,48 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Configure AWS SDK
 const aws = require("aws-sdk");
 const s3 = new aws.S3();
+const S3_BUCKET = process.env.S3_BUCKET;
 aws.config.region = process.env.AWS_REGION;
-S3_BUCKET = process.env.S3_BUCKET;
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, './public', 'index.html'));
 });
 
-app.get('/sign-s3', (req, res) => {
-  const fileName = req.query['file-name'];
+app.get("/engagement-photos", (req, res) => {
+    res.sendFile(path.join(__dirname, './public', 'engagement-photos.html'));
+});
+
+app.get("/wedding-photos", (req, res) => {
+    res.sendFile(path.join(__dirname, './public', 'wedding-photos.html'));
+});
+
+app.get('/get-engagement-photos', (req, res) =>{
+  const params = {
+    Bucket: process.env.S3_BUCKET,
+    MaxKeys: 2,
+    Prefix: 'engagement-photos/'
+  };
+
+  s3.listObjects(params, (err, data) => {
+    if(err){
+      console.log(err);
+      return res.end();
+    }
+
+    console.log(data.Contents[0].Key);
+  });
+  res.send("hello world");
+});
+
+app.get('/wedding-upload', (req, res) => {
+  const pictureName = req.query['file-name']
+    .replace(/ /g, '-')
+    .replace(/[<>]/g, '')
+    .replace(/[{}]/g, '')
+    .replace(/[{}]/g, '');
+
+  const absoluteTime = new Date().getTime();
+  const fileName = `wedding-photos/${absoluteTime}__${pictureName}`;
   const fileType = req.query['file-type'];
   const s3Params = {
     Bucket: S3_BUCKET,
@@ -34,12 +67,12 @@ app.get('/sign-s3', (req, res) => {
   s3.getSignedUrl('putObject', s3Params, (err, data) => {
     if(err){
       console.log(err);
-      return res.end();
+      return res.sendStatus(500);
     }
 
     const returnData = {
       signedRequest: data,
-      url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
+      url: `https://s3.amazonaws.com/${S3_BUCKET}/${fileName}`
     };
 
     res.write(JSON.stringify(returnData));
@@ -50,7 +83,8 @@ app.get('/sign-s3', (req, res) => {
 app.get('/list-photos', (req, res) => {
   const params = {
     Bucket: process.env.S3_BUCKET,
-    MaxKeys: 2
+    MaxKeys: 2,
+    Prefix: 'wedding/'
   };
 
   s3.listObjects(params, (err, data) => {
@@ -58,8 +92,7 @@ app.get('/list-photos', (req, res) => {
       console.log(err);
       return res.end();
     }
-
-    console.log(data);
+    console.log(data.Contents[0].Key);
   });
   res.send("hello world");
 });
