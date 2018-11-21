@@ -6,9 +6,10 @@ thumb({
     source: 'real-photo/',
     destination: 'thumbnail-photo/',
     concurrency: 4,
-    width: 400
+    width: 800,
+    suffix: ''
 }).then(function() {
     console.log('All done!');
-}).catch(function(error){
+}).catch(function(error) {
     console.log('Error', error.toString());
 });
