@@ -321,4 +321,21 @@ footer {
     .date {
         margin-top: 7%;
     }
+
+    /* Engagement photos */
+
+    .engagement-image__container {
+        width: 325px;
+    }
+
+    .engagement-image {
+        width: 330px;
+    }
+
+    /* wedding photos */
+
+    .upload-photo__section {
+        padding: 20px;
+        margin-top: 10px;
+    }
 }
