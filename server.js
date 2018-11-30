@@ -28,11 +28,11 @@ app.get("/wedding-photos", (req, res) => {
     res.sendFile(path.join(__dirname, './public', 'wedding-photos.html'));
 });
 
-app.get('/place-engagement-photos', (req, res) =>{
+app.get('/get-engagement-photos-thumbnail', (req, res) =>{
   const params = {
     Bucket: process.env.S3_BUCKET,
     // MaxKeys: 2,
-    Prefix: 'engagement-photos/'
+    Prefix: 'engagement-thumbnail/'
   };
 
   s3.listObjects(params, (err, photos) => {
