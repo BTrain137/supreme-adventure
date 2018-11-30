@@ -8,7 +8,7 @@ document.addEventListener('click',function(event){
 
 (function getEngagementPhotos(){
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', '/place-engagement-photos');
+    xhr.open('GET', '/get-engagement-photos-thumbnail');
     xhr.onreadystatechange = () => {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
@@ -18,12 +18,18 @@ document.addEventListener('click',function(event){
                     response.forEach((photoURL, index) => {
                         console.log(photoURL);
                         let img = document.createElement('img');
+                        let picture = document.createElement('picture');
+                        picture.classList.add('engagement-image__wrapper');
                         img.classList.add('engagement-image');
-                        img.src = photoURL;
-                        img['data-index'] = index;
-                        img.alt = `bryan and kim wedding photo# ${index}`; 
-                        photoDiv.appendChild(img);
+                        img.setAttribute('srcset', photoURL);
+                        img.setAttribute('data-index', index);
+                        img.setAttribute('alt', `bryan and kim wedding photo# ${index}`);
+                        picture.appendChild(img)
+                        photoDiv.appendChild(picture);
                     });
+                    setTimeout(() => {
+                    //    photoDiv. 
+                    }, 200);
                     
             } else {
                 // console.log("This ",this);
@@ -32,4 +38,4 @@ document.addEventListener('click',function(event){
         }
     }
     xhr.send();
-});
+})();

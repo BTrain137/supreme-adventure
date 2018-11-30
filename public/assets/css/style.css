@@ -225,14 +225,17 @@ footer {
     justify-content: space-between;
 }
 
+.engagement-image__wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .engagement-image {
     width: 280px;
-    height: 100%;
+    height: auto;
     padding: 5px;
     border-radius: 25px;
-    align-self: center;
     margin-top: 15px;
-
     box-sizing: border-box;
     border: solid 1px #fff;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
@@ -300,6 +303,16 @@ footer {
     .date__section {
         min-height: unset;
     }
+
+    /* Engagement photos */
+
+    .engagement-image__container {
+        width: 325px;
+    }
+
+    .engagement-image {
+        width: 330px;
+    }
 }
 
 @media only screen and (max-width: 414px) {
@@ -320,16 +333,6 @@ footer {
     .our-story__heading,
     .date {
         margin-top: 7%;
-    }
-
-    /* Engagement photos */
-
-    .engagement-image__container {
-        width: 325px;
-    }
-
-    .engagement-image {
-        width: 330px;
     }
 
     /* wedding photos */
