@@ -217,6 +217,8 @@ footer {
     margin-top: 200px;
 }
 
+/******* Engagement photo ******/
+
 .engagement-image__container {
     width: 1200px;
     margin: 10px auto;
@@ -232,7 +234,14 @@ footer {
 
 .engagement-image {
     width: 280px;
-    height: auto;
+}
+
+.lg-engagement-image {
+    max-height: 96vh;
+}
+
+.lg-engagement-image,
+.engagement-image {
     padding: 5px;
     border-radius: 25px;
     margin-top: 15px;
@@ -240,6 +249,78 @@ footer {
     border: solid 1px #fff;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
     background-color: white;
+}
+
+.engagement-album__container {
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.engagement-album-separator {
+    height: 435px;
+    width: 315px;
+    margin: 42px;
+}
+
+.engagement-album-offset-2,
+.engagement-album-offset,
+.engagement-album {
+    width: 280px;
+    height: auto;
+    position: absolute;
+    border: 2px solid black;
+}
+
+.engagement-album {
+    transform: rotate(-5deg);
+}
+
+.engagement-album-offset {
+    transform: rotate(4deg);
+}
+
+.lg-image-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.lg-engagement__wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.lg-image__left-arrow,
+.lg-image__right-arrow {
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    top: 0;
+}
+
+.lg-image__left-arrow {
+    left: 30vw;
+}
+
+.lg-image__right-arrow {
+    right: 30vw;
+}
+
+.lg-image__right-arrow:hover,
+.lg-image__left-arrow:hover {
+    background-image: url(../images/arrow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.lg-image__left-arrow:hover {
+    transform: scaleX(-1);
 }
 
 @media only screen and (max-width: 990px) {
