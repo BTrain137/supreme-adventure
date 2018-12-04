@@ -21,7 +21,7 @@ function createThumbnail() {
 function reduceImage(params) {
     thumb({
         source: 'real-photo/',
-        destination: 'thumbnail-photo/',
+        destination: 'reduced-photo/',
         concurrency: 4,
         width: 800,
         suffix: ''

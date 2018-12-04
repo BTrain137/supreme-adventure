@@ -4,4 +4,5 @@ node_modules/
 .DS_Store
 real-photo/
 thumbnail-photo/
+reduced-photo/
 *.pem
