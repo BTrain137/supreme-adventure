@@ -9,8 +9,9 @@ function getLgImgUrl(thumbnailURL){
 
 document.addEventListener('click',function(event){
 
-    if (event.target && event.target.classList == 'lg-image-container') {
-        event.target.remove();
+    if (event.target && (event.target.classList == 'lg-image-container' || event.target.classList == 'lg-engagement-image' || event.target.classList == 'lg-engagement__wrapper')) {
+        let lgImgContainer = document.getElementsByClassName('lg-image-container')[0];
+        lgImgContainer.remove();
     }
     else if (event.target && event.target.classList == 'lg-image__right-arrow') {
         let lgEngageImg = document.getElementsByClassName('lg-engagement-image')[0];

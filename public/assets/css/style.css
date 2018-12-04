@@ -220,7 +220,7 @@ footer {
 /******* Engagement photo ******/
 
 .engagement-image__container {
-    width: 1200px;
+    width: 90%;
     margin: 10px auto;
     display: flex;
     flex-wrap: wrap;
@@ -238,12 +238,14 @@ footer {
 
 .lg-engagement-image {
     max-height: 96vh;
+    max-width: 95vw;
 }
 
 .lg-engagement-image,
 .engagement-image {
     padding: 5px;
     border-radius: 25px;
+    margin: 5px;
     margin-top: 15px;
     box-sizing: border-box;
     border: solid 1px #fff;
@@ -323,6 +325,27 @@ footer {
     transform: scaleX(-1);
 }
 
+@media only screen and (max-width: 1200px) {
+    
+}
+
+@media only screen and (width: 1024px) {
+
+    /* Engagement photos */
+
+    .lg-image__right-arrow,
+    .lg-image__left-arrow {
+        background-image: url(../images/arrow.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 120px;
+    }
+
+    .lg-image__left-arrow {
+        transform: scaleX(-1);
+    }
+}
+
 @media only screen and (max-width: 990px) {
     .banner {
         min-height: 29rem;
@@ -335,9 +358,40 @@ footer {
     .front-page__image--container {
         width: 80%;
     }
+
+    /* Engagement photos */
+
+    .lg-image__left-arrow, 
+    .lg-image__right-arrow {
+        width: 25%;
+    }
+
+    .lg-image__right-arrow {
+        right: 25vw;
+    }
+    .lg-image__left-arrow {
+        left: 25vw;
+    }
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (width: 768px) {
+
+    /* Engagement photos */
+
+    .lg-image__right-arrow,
+    .lg-image__left-arrow {
+        background-image: url(../images/arrow.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 90px;
+    }
+
+    .lg-image__left-arrow {
+        transform: scaleX(-1);
+    }
+}
+
+@media only screen and (max-width: 768px) {
     .banner {
         min-height: 22rem;
     }
@@ -361,9 +415,15 @@ footer {
     .date {
         font-size: 45px;
     }
+
+    /* Engagement photos */
+
+    .engagement-image__container {
+        width: 90%;
+    }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 649px) {
     .banner {
         min-height: 20rem;
     }
@@ -386,17 +446,17 @@ footer {
     }
 
     /* Engagement photos */
-
     .engagement-image__container {
-        width: 325px;
+        width: 80%;
     }
 
     .engagement-image {
         width: 330px;
     }
+    
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 480px) {
     .banner {
         min-height: 16rem;
     }
@@ -406,14 +466,27 @@ footer {
     .names {
         font-size: 32px;
     }
-
+    
     .date__container {
         margin-top: 5%;
     }
-
+    
     .our-story__heading,
     .date {
         margin-top: 7%;
+    }
+
+    /* Engagement photos */
+    .lg-image__right-arrow,
+    .lg-image__left-arrow {
+        background-image: url(../images/arrow.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 80px;
+    }
+
+    .lg-image__left-arrow {
+        transform: scaleX(-1);
     }
 
     /* wedding photos */
