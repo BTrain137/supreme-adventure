@@ -39,7 +39,6 @@ document.addEventListener('click',function(event){
         let rightDiv = document.createElement('div');
         let largePicture = document.createElement('picture');
         let largeImage = document.createElement('img');
-        let content = document.createTextNode("&nbsp;");
 
         leftDiv.classList.add('lg-image__left-arrow');
         rightDiv.classList.add('lg-image__right-arrow');
@@ -50,8 +49,8 @@ document.addEventListener('click',function(event){
         largeImage.setAttribute('srcset', highQualityUrl);
         largeImage.setAttribute('data-index', index);
 
-        leftDiv.appendChild(content);
-        rightDiv.appendChild(content);
+        leftDiv.innerHTML = '&nbsp;';
+        rightDiv.innerHTML = '&nbsp;';
         if(index < (response.length - 1)) largePicture.appendChild(rightDiv);
         if(index > 0) largePicture.appendChild(leftDiv);
         largePicture.appendChild(largeImage);
