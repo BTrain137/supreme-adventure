@@ -39,15 +39,19 @@ document.addEventListener('click',function(event){
         let rightDiv = document.createElement('div');
         let largePicture = document.createElement('picture');
         let largeImage = document.createElement('img');
+        let content = document.createTextNode("&nbsp;");
 
         leftDiv.classList.add('lg-image__left-arrow');
         rightDiv.classList.add('lg-image__right-arrow');
         div.classList.add('lg-image-container');
         largePicture.classList.add('lg-engagement__wrapper');
         largeImage.classList.add('lg-engagement-image');
+
         largeImage.setAttribute('srcset', highQualityUrl);
         largeImage.setAttribute('data-index', index);
 
+        leftDiv.appendChild(content);
+        rightDiv.appendChild(content);
         if(index < (response.length - 1)) largePicture.appendChild(rightDiv);
         if(index > 0) largePicture.appendChild(leftDiv);
         largePicture.appendChild(largeImage);
