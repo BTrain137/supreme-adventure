@@ -1,12 +1,16 @@
 let response;
-var xDown = null;
-var yDown = null;
 
 function getLgImgUrl(thumbnailURL){
-    let parsed = thumbnailURL.split('/');
-    let thumbnailName = parsed[parsed.length - 1];
-    let imageName = thumbnailName.split('-thumbnail').join('');
-    return `https://s3.amazonaws.com/bryankim/engagement-photos/${imageName}`;
+    
+    if (thumbnailURL) {
+        let parsed = thumbnailURL.split('/');
+        let thumbnailName = parsed[parsed.length - 1];
+        let imageName = thumbnailName.split('-thumbnail').join('');
+        return `https://s3.amazonaws.com/bryankim/engagement-photos/${imageName}`;
+    } else {
+        let lgImgContainer = document.getElementsByClassName('lg-image-container')[0];
+        lgImgContainer.remove();
+    }
 };
 
 function getPerviousPhoto() {
@@ -73,7 +77,6 @@ document.addEventListener('click',function(event){
     }
 
  });
-
 
 // Mobile Touch event
 document.addEventListener('touchstart', function (event) {
