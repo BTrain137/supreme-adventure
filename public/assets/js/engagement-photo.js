@@ -56,42 +56,6 @@ function viewLgImg(event) {
     body.appendChild(div);
 };
 
-function handleTouchStart(evt) {                                         
-    xDown = evt.originalEvent.touches[0].clientX;                                      
-    yDown = evt.originalEvent.touches[0].clientY;                                      
-};                                                
-
-function handleTouchMove(evt) {
-    if ( ! xDown || ! yDown ) {
-        return;
-    }
-
-    var xUp = evt.originalEvent.touches[0].clientX;                                    
-    var yUp = evt.originalEvent.touches[0].clientY;
-
-    var xDiff = xDown - xUp;
-    var yDiff = yDown - yUp;
-
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-        if ( xDiff > 0 ) {
-            /* left swipe */ 
-            getNextPhoto();
-        } else {
-            /* right swipe */
-            getPerviousPhoto();
-        }                       
-    } else {
-        if ( yDiff > 0 ) {
-            /* up swipe */ 
-        } else { 
-            /* down swipe */
-        }                                                                 
-    }
-    /* reset values */
-    xDown = null;
-    yDown = null;                                             
-};
-
 document.addEventListener('click',function(event){
 
     if (event.target && (event.target.classList == 'lg-image-container' || event.target.classList == 'lg-engagement-image' || event.target.classList == 'lg-engagement__wrapper')) {
@@ -110,9 +74,16 @@ document.addEventListener('click',function(event){
 
  });
 
+
 // Mobile Touch event
-document.addEventListener('touchstart', handleTouchStart, false);        
-document.addEventListener('touchmove', handleTouchMove, false);
+document.addEventListener('touchstart', function (event) {
+    if (event.target && event.target.classList == 'lg-image__right-arrow') {
+        getNextPhoto();
+    }
+    else if (event.target && event.target.classList == 'lg-image__left-arrow') {
+        getPerviousPhoto();
+    }  
+});        
 
 (function getEngagementPhotos(){
     const xhr = new XMLHttpRequest();
