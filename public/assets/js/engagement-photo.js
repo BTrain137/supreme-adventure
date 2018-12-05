@@ -16,28 +16,30 @@ function getLgImgUrl(thumbnailURL){
 function getPerviousPhoto() {
     let lgEngageImg = document.getElementsByClassName('lg-engagement-image')[0];
     let current = parseInt(lgEngageImg.dataset.index);
-    let previousImg = getLgImgUrl(response[current - 1])
 
-    if(previousImg){
+    if ((current - 1) >= 0) {
+        let previousImg = getLgImgUrl(response[current - 1]);
         lgEngageImg.setAttribute('srcset', previousImg);
         lgEngageImg.setAttribute('data-index', current - 1);
     } 
     else {
-        lgEngageImg.remove();
+        let lgImgContainer = document.getElementsByClassName('lg-image-container')[0];
+        lgImgContainer.remove();
     }
 };
 
 function getNextPhoto() {
     let lgEngageImg = document.getElementsByClassName('lg-engagement-image')[0];
     let current = parseInt(lgEngageImg.dataset.index);
-    let nextImg = getLgImgUrl(response[current + 1])
 
-    if(nextImg) {
+    if((current + 1)) {
+        let nextImg = getLgImgUrl(response[current + 1]);
         lgEngageImg.setAttribute('srcset', nextImg);
         lgEngageImg.setAttribute('data-index', current + 1);
     }
     else {
-        lgEngageImg.remove();
+        let lgImgContainer = document.getElementsByClassName('lg-image-container')[0];
+        lgImgContainer.remove();
     }
 };
 
