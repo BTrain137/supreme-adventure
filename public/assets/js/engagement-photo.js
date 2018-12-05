@@ -18,8 +18,13 @@ function getPerviousPhoto() {
     let current = parseInt(lgEngageImg.dataset.index);
     let previousImg = getLgImgUrl(response[current - 1])
 
-    lgEngageImg.setAttribute('srcset', previousImg);
-    lgEngageImg.setAttribute('data-index', current - 1);
+    if(previousImg){
+        lgEngageImg.setAttribute('srcset', previousImg);
+        lgEngageImg.setAttribute('data-index', current - 1);
+    } 
+    else {
+        lgEngageImg.remove();
+    }
 };
 
 function getNextPhoto() {
@@ -27,8 +32,13 @@ function getNextPhoto() {
     let current = parseInt(lgEngageImg.dataset.index);
     let nextImg = getLgImgUrl(response[current + 1])
 
-    lgEngageImg.setAttribute('srcset', nextImg);
-    lgEngageImg.setAttribute('data-index', current + 1);
+    if(nextImg) {
+        lgEngageImg.setAttribute('srcset', nextImg);
+        lgEngageImg.setAttribute('data-index', current + 1);
+    }
+    else {
+        lgEngageImg.remove();
+    }
 };
 
 function viewLgImg(event) {
