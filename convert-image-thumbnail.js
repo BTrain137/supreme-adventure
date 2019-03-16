@@ -18,7 +18,7 @@ function createThumbnail() {
     }); 
 }
 
-function reduceImage(params) {
+function reduceImage() {
     thumb({
         source: 'real-photo/',
         destination: 'reduced-photo/',
