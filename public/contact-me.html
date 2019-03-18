@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Kim &amp; Bryan</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+
+  <body>
+    <header class="banner">
+      <img class="banner__image" src="/assets/images/paintedPetal.png" alt="Painted Petals" />
+      <div class="name__container">
+        <h1 class="names">
+          Bryan<span class="and">and</span>Kim
+        </h1> 
+      </div>
+    </header>
+
+    <nav class="header" id="myHeader">
+      <a href="/">Home</a>
+      <a href="/engagement-photos" class="active">Engagement</a>
+      <a href="/wedding-photos">Wedding</a>
+    </nav>
+
+    <section class="contact__container">
+        <div class="contact__title">
+            <h2>Contact Us<hr></h2>
+        </div>
+        <form class="contact__form">
+            <p>Name</p>
+            <input class="contact__form-input" id="user-name" type="text" required>
+
+            <p>Email</p>
+            <input class="contact__form-input" id="user-email" type="email" required>
+
+            <p>Message</p>
+            <textarea 
+                class="contact__form-textarea" 
+                type="text" 
+                placeholder="Is There something Wrong? Please let me know."
+                id="user-message";
+                required
+            ></textarea>
+
+            <input type="submit" value="Send message" id="send-contact">
+        </form>
+    </section>
+
+    <footer>&copy;Bryan Tran &amp; Kim Nguyen 2019</footer>
+    <script src="./assets/js/contact-me.js"></script>
+  </body>
+</html>
