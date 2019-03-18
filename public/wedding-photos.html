@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kim & Bryan</title>
+    <title>Kim &amp; Bryan</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
@@ -14,11 +14,9 @@
     <header class="banner">
         <img class="banner__image" src="/assets/images/paintedPetal.png" alt="">
         <div class="name__container">
-            <div class="name__container--flex">
-                <h1 class="names">Bryan Tran</h1>
-                <div class="and">and</div>
-                <h1 class="names">Kim Nguyen</h1>
-            </div>
+            <h1 class="names">
+                Bryan<span class="and">and</span>Kim
+            </h1> 
         </div>
     </header>
 
@@ -28,13 +26,18 @@
         <a href="/wedding-photos" class="active">Wedding</a>
     </nav> 
 
-    <section class="upload-photo__section">
+    <!-- <section class="upload-photo__section">
         <h3 id="thank-you-message">Please share your photos with us!!!</h3>
         <p class="thank-you">Thank you</p>
         <div class="upload-input__wrapper">
             <input type="file" id="file-input">
             <img id="preview" src="https://s3.amazonaws.com/bryankim/wedding-photos/1542960488722__wedding-photo-photo-banner.jpg">
         </div>
+    </section> -->
+    <section class="upload-photo__section">
+        <h3 id="thank-you-message">Please share your <a href="#">photos</a> with us!!!</h3>
+        <p>For full resolution photos please <a href="/contact-me">contact me</a>.</p>
+        <p>If you post any of these photos please tag &commat;tinphography</p>
     </section>
 
     <section class="loading-background">
@@ -42,26 +45,104 @@
     </section>
 
     <section class="engagement-album__container">
-        <div class="engagement-album-separator">
+        <a href="/wedding-photos/tea-ceremony" class="engagement-album-separator">
             <picture class="engagement-album__wrapper">
-            <img
-            class="engagement-album"
-            srcset="https://s3.amazonaws.com/bryankim/engagement-thumbnail/LOVE-010-thumbnail.jpg"
-            data-index="1"
-            alt="bryan and kim wedding photo# 1"/>
-            <img
-            class="engagement-album-offset"
-            srcset="https://s3.amazonaws.com/bryankim/engagement-thumbnail/LOVE-030-thumbnail.jpg"
-            data-index="30"
-            alt="bryan and kim wedding photo# 30"/>
-            <img
-            class="engagement-album-offset-2"
-            srcset="https://s3.amazonaws.com/bryankim/engagement-thumbnail/LOVE-085-thumbnail.jpg"
-            data-index="85"
-            alt="bryan and kim wedding photo# 85"/>
+                <img
+                class="engagement-album"
+                srcset="https://s3.amazonaws.com/bryankim/tea-ceremony-thumbnail/KB-Wedding-005-thumbnail.jpg"
+                data-index="1"
+                alt="bryan and kim wedding photo# 1"/>
+                <img
+                class="engagement-album-offset"
+                srcset="https://s3.amazonaws.com/bryankim/tea-ceremony-thumbnail/KB-Wedding-012-thumbnail.jpg"
+                data-index="30"
+                alt="bryan and kim wedding photo# 30"/>
+                <img
+                class="engagement-album-offset-2"
+                srcset="https://s3.amazonaws.com/bryankim/tea-ceremony-thumbnail/KB-Wedding-219-thumbnail.jpg"
+                data-index="85"
+                alt="bryan and kim wedding photo# 85"/>
             </picture>
-        </div>
-        <div class="engagement-album-separator">
+        </a>
+        <a href="/wedding-photos/church-ceremony" class="engagement-album-separator">
+            <picture class="engagement-album__wrapper">
+                <img
+                class="engagement-album"
+                srcset="https://s3.amazonaws.com/bryankim/church-ceremony-thumbnail/KB-Wedding-444-thumbnail.jpg"
+                data-index="1"
+                alt="bryan and kim wedding photo# 1"/>
+                <img
+                class="engagement-album-offset"
+                srcset="https://s3.amazonaws.com/bryankim/church-ceremony-thumbnail/KB-Wedding-242-thumbnail.jpg"
+                data-index="30"
+                alt="bryan and kim wedding photo# 30"/>
+                <img
+                class="engagement-album-offset-2"
+                srcset="https://s3.amazonaws.com/bryankim/church-ceremony-thumbnail/KB-Wedding-240-thumbnail.jpg"
+                data-index="85"
+                alt="bryan and kim wedding photo# 85"/>
+            </picture>
+        </a>
+        <a href="/wedding-photos/bridal-party" class="engagement-album-separator">
+            <picture class="engagement-album__wrapper">
+                <img
+                class="engagement-album"
+                srcset="https://s3.amazonaws.com/bryankim/engagement-thumbnail/LOVE-010-thumbnail.jpg"
+                data-index="1"
+                alt="bryan and kim wedding photo# 1"/>
+                <img
+                class="engagement-album-offset"
+                srcset="https://s3.amazonaws.com/bryankim/bridal-party-thumbnail/KB-Wedding-480-thumbnail.jpg"
+                data-index="30"
+                alt="bryan and kim wedding photo# 30"/>
+                <img
+                class="engagement-album-offset-2"
+                srcset="https://s3.amazonaws.com/bryankim/bridal-party-thumbnail/KB-Wedding-487-thumbnail.jpg"
+                data-index="85"
+                alt="bryan and kim wedding photo# 85"/>
+            </picture>
+        </a>
+    </section>
+    <section class="engagement-album__container">
+        <a  href="/wedding-photos/guest-entrance" class="engagement-album-separator">
+            <picture class="engagement-album__wrapper">
+                <img
+                class="engagement-album"
+                srcset="https://s3.amazonaws.com/bryankim/engagement-thumbnail/LOVE-010-thumbnail.jpg"
+                data-index="1"
+                alt="bryan and kim wedding photo# 1"/>
+                <img
+                class="engagement-album-offset"
+                srcset="https://s3.amazonaws.com/bryankim/bridal-party-thumbnail/KB-Wedding-485-thumbnail.jpg"
+                data-index="30"
+                alt="bryan and kim wedding photo# 30"/>
+                <img
+                class="engagement-album-offset-2"
+                srcset="https://s3.amazonaws.com/bryankim/guest-entrance-thumbnail/guest-entrance-162-thumbnail.jpg"
+                data-index="85"
+                alt="bryan and kim wedding photo# 85"/>
+            </picture>
+        </a>
+        <a href="/wedding-photos/reception" class="engagement-album-separator">
+            <picture class="engagement-album__wrapper">
+                <img
+                class="engagement-album"
+                srcset="https://s3.amazonaws.com/bryankim/reception-thumbnail/KB-Wedding-0844-thumbnail.jpg"
+                data-index="1"
+                alt="bryan and kim wedding photo# 1"/>
+                <img
+                class="engagement-album-offset"
+                srcset="https://s3.amazonaws.com/bryankim/reception-thumbnail/KB-Wedding-0721-thumbnail.jpg"
+                data-index="30"
+                alt="bryan and kim wedding photo# 30"/>
+                <img
+                class="engagement-album-offset-2"
+                srcset="https://s3.amazonaws.com/bryankim/reception-thumbnail/KB-Wedding-0736-thumbnail.jpg"
+                data-index="85"
+                alt="bryan and kim wedding photo# 85"/>
+            </picture>
+        </a>
+        <a href="/wedding-photos/reception" class="engagement-album-separator">
             <picture class="engagement-album__wrapper">
                 <img
                 class="engagement-album"
@@ -79,30 +160,11 @@
                 data-index="85"
                 alt="bryan and kim wedding photo# 85"/>
             </picture>
-        </div>
-        <div class="engagement-album-separator">
-            <picture class="engagement-album__wrapper">
-                <img
-                class="engagement-album"
-                srcset="https://s3.amazonaws.com/bryankim/engagement-thumbnail/LOVE-010-thumbnail.jpg"
-                data-index="1"
-                alt="bryan and kim wedding photo# 1"/>
-                <img
-                class="engagement-album-offset"
-                srcset="https://s3.amazonaws.com/bryankim/engagement-thumbnail/LOVE-030-thumbnail.jpg"
-                data-index="30"
-                alt="bryan and kim wedding photo# 30"/>
-                <img
-                class="engagement-album-offset-2"
-                srcset="https://s3.amazonaws.com/bryankim/engagement-thumbnail/LOVE-085-thumbnail.jpg"
-                data-index="85"
-                alt="bryan and kim wedding photo# 85"/>
-            </picture>
-        </div>
+        </a>
     </section>
 
     <footer>
-       &copy;Bryan Tran & Kim Nguyen 2018 
+       &copy;Bryan Tran &amp; Kim Nguyen 2019 
     </footer>
 
     <script src="/assets/js/index.js"></script>
