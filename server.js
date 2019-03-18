@@ -1,14 +1,15 @@
 require("dotenv").config();
 const path = require("path")
     , express = require("express")
-    , logger = require('morgan')
+    , logger = require("morgan")
+    , helper = require("./helpers/helper")
     , app = express()
     , PORT = process.env.PORT || 3000;
 
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Configure AWS SDK
 const aws = require("aws-sdk");
@@ -17,27 +18,51 @@ const S3_BUCKET = process.env.S3_BUCKET;
 aws.config.region = process.env.AWS_REGION;
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, './public', 'index.html'));
+  res.sendFile(path.join(__dirname, "./public", "index.html"));
 });
 
 app.get("/engagement-photos", (req, res) => {
-    res.sendFile(path.join(__dirname, './public', 'engagement-photos.html'));
+  res.sendFile(path.join(__dirname, "./public", "engagement-photos.html"));
 });
 
 app.get("/wedding-photos", (req, res) => {
-    res.sendFile(path.join(__dirname, './public', 'wedding-photos.html'));
+  res.sendFile(path.join(__dirname, "./public", "wedding-photos.html"));
 });
 
-app.get('/get-engagement-photos-thumbnail', (req, res) =>{
+app.get("/wedding-photos/:event", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/wedding-photos", `${req.params.event}.html`));
+});
+
+app.get("/contact-me", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public", "contact-me.html"));
+});
+
+app.post("/contact-me", (req, res) => {
+  const { name, email, message } = req.body
+  const html = `<p> Name: ${helper.cleanUserData(name)} </p> 
+              <p> Email: ${helper.cleanUserData(email)}</p>
+              <p> Message: ${helper.cleanUserData(message)}</p>`;
+
+  helper.nodeMailer("Bryan Kim - Contact Us", html)
+    .then(info =>{
+      res.sendStatus(200);
+    })
+    .catch(err => {
+      helper.writeErrorToFile("ErrorContactMe.txt", err.toString());
+      res.sendStatus(500);
+    });
+});
+
+app.get("/get-engagement-photos-thumbnail", (req, res) =>{
   const params = {
     Bucket: process.env.S3_BUCKET,
     // MaxKeys: 2,
-    Prefix: 'engagement-thumbnail/'
+    Prefix: "engagement-thumbnail/"
   };
 
   s3.listObjects(params, (err, photos) => {
     if(err){
-      console.log(err);
+      helper.writeErrorToFile('ErrorGetEngagePhoto-thumbnail.txt', err.toString());
       return res.sendStatus(500);
     }
 
@@ -53,31 +78,55 @@ app.get('/get-engagement-photos-thumbnail', (req, res) =>{
   });
 });
 
-app.get('/engagement-thumbnail', (req, res) => {
-  //TODO users get thumbnail URL from MongoDB
-}); 
+app.get("/get-wedding-photos-thumbnail/:folderName", (req, res) =>{
+  const params = {
+    Bucket: process.env.S3_BUCKET,
+    // MaxKeys: 2,
+    Prefix: `${req.params.folderName}/`
+  };
 
-app.get('/wedding-upload', (req, res) => {
-  const pictureName = req.query['file-name']
-    .replace(/ /g, '-')
-    .replace(/[<>]/g, '')
-    .replace(/[{}]/g, '')
-    .replace(/[{}]/g, '');
+  s3.listObjects(params, (err, photos) => {
+    if(err){
+      helper.writeErrorToFile('ErrorGetThumbnail.txt', err.toString());
+      return res.sendStatus(500);
+    }
+
+    const engagementPhotos = photos.Contents.map(photo => {
+      return `https://s3.amazonaws.com/bryankim/${photo.Key}`
+    });
+
+    engagementPhotos.shift();
+    res.json(engagementPhotos);
+  });
+});
+
+app.post("/error", (req, res) => {
+  helper.writeErrorToFile('ErrorClient.txt', req.body.toString());
+});
+
+app.get("/engagement-thumbnail", (req, res) => {
+  //TODO users get thumbnail URL from MongoDB
+});
+
+app.get("/wedding-upload", (req, res) => {
+  const pictureName = helper.cleanUserData(req.query["file-name"])
+    .replace(/ /g, "-");
 
   const absoluteTime = new Date().getTime();
   const fileName = `wedding-photos/${absoluteTime}__${pictureName}`;
-  const fileType = req.query['file-type'];
+  const fileType = req.query["file-type"];
   const weddingPhotoParams = {
     Bucket: S3_BUCKET,
     Key: fileName,
     Expires: 60,
     ContentType: fileType,
-    ACL: 'public-read'
+    ACL: "public-read"
   };
 
-  s3.getSignedUrl('putObject', weddingPhotoParams, (err, data) => {
+  // TODO restrict file types to be upload
+  s3.getSignedUrl("putObject", weddingPhotoParams, (err, data) => {
     if(err){
-      console.log(err);
+      helper.writeErrorToFile('ErrorPutObject.txt', err.toString());
       return res.sendStatus(500);
     }
 
@@ -90,68 +139,6 @@ app.get('/wedding-upload', (req, res) => {
     // res.end();
     res.json(returnData);
   });
-});
-
-app.get('/engagement-upload', (req, res) => {
-  const engagementPhotoParams = {
-    //ACL: private | public-read | public-read-write | authenticated-read | aws-exec-read | bucket-owner-read | bucket-owner-full-control,
-    ACL: "public-read",
-    // Body — (Buffer, Typed Array, Blob, String, ReadableStream)
-    // Body: new Buffer('...') || 'STRING_VALUE' || streamObject,
-    Body: '', 
-    Bucket: "examplebucket", 
-    Key: "exampleobject"
-  };
-  s3.putObject(engagementPhotoParams, function(err, data) {
-    if(err){
-      console.log(err);
-      return res.sendStatus(500);
-    }
-
-    /*
-    data = {
-      ETag: "\"6805f2cfc46c0f04559748bb039d69ae\"", 
-      VersionId: "Kirh.unyZwjQ69YxcQLA8z4F5j3kJJKr"
-    }
-    */
-
-    console.log(data);
-
-    res.send('Uploaded photo');
-
-  });
-});
-
-//test get list of photo from directory
-app.get('/list-photos', (req, res) => {
-  const params = {
-    Bucket: process.env.S3_BUCKET,
-    MaxKeys: 2,
-    Prefix: 'wedding/'
-  };
-
-  s3.listObjects(params, (err, data) => {
-    if(err){
-      console.log(err);
-      return res.sendStatus(500);
-    }
-    console.log(data.Contents[0].Key);
-  });
-  res.send("hello world");
-});
-
-//test to get single photo
-app.get('/get-photos', (req, res) => {
-
-  s3.getObject({Bucket: process.env.S3_BUCKET, Key: 'wedding/front-page-1.jpg'}, (err, data) => {
-    if(err){
-      console.log(err);
-      return res.sendStatus(500);
-    }
-
-    console.log(data);
-  });
-  res.send("hello world");
 });
 
 app.listen(PORT, ()=> {
