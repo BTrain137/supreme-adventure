@@ -206,9 +206,14 @@ footer {
     margin-top: 50px;
 }
 
+.upload-input__wrapper {
+    text-align: center;
+}
+
 #file-input {
     display: block;
     margin: 30px auto;
+    width: 236px;
 }
 
 #preview {

@@ -102,6 +102,19 @@ app.get("/get-wedding-photos-thumbnail/:folderName", (req, res) =>{
 
 app.post("/error", (req, res) => {
   helper.writeErrorToFile('ErrorClient.txt', req.body.toString());
+
+  const html = `<p>Error! Client was not able to upload a photo</p>
+                <p>Time: ${req.body.time}</p>
+                <p>User Agent: ${req.body.userAgent}</p>`;
+
+  helper.nodeMailer("Bryan - Kim: Error Client", html)
+    .then(info =>{
+      res.sendStatus(200);
+    })
+    .catch(err => {
+      helper.writeErrorToFile("ErrorContactMe.txt", err.toString());
+      res.sendStatus(500);
+    });
 });
 
 app.get("/engagement-thumbnail", (req, res) => {
@@ -113,7 +126,7 @@ app.get("/wedding-upload", (req, res) => {
     .replace(/ /g, "-");
 
   const absoluteTime = new Date().getTime();
-  const fileName = `wedding-photos/${absoluteTime}__${pictureName}`;
+  const fileName = `guest-upload/${absoluteTime}__${pictureName}`;
   const fileType = req.query["file-type"];
   const weddingPhotoParams = {
     Bucket: S3_BUCKET,

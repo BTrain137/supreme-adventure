@@ -43,11 +43,16 @@ function getSignedRequest(file){
                 uploadFile(file, response.signedRequest, response.url);
             }
             else {
-                //TODO create alert via nodemailer or twilio
                 document.getElementById('preview').src = './assets/images/sorry.jpg';
                 document.getElementById('thank-you-message').innerHTML = "SORRY something happened! Let Kim or Bryan know something happened."
                 completeHeart();
-            }
+
+                // Send time and browser info
+                let timeNow = (new Date()).toString();
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", "/contact-me", true);
+                xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                xhr.send(JSON.stringify({ "time": timeNow, "userAgent": navigator.userAgent }));
         }
     };
     xhr.send();
