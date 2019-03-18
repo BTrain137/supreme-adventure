@@ -54,6 +54,10 @@ nav a:hover {
     color: #AC7663;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .active {
     color: #AC7663;
 }
@@ -89,6 +93,7 @@ nav a:hover {
     font-size: 54px;
     color: #403a34;
     margin: 0;
+    margin-top: 63px;
 }
 
 .and {
@@ -100,6 +105,14 @@ nav a:hover {
     letter-spacing: normal;
     font-size: 27.2px;
     color: #403a34;
+    margin: 0 18px;
+}
+
+.event {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 40px;
 }
 
 .font-page__image--section,
@@ -219,6 +232,7 @@ footer {
 
 /******* Engagement photo ******/
 
+.image__container,
 .engagement-image__container {
     width: 90%;
     margin: 10px auto;
@@ -227,6 +241,7 @@ footer {
     justify-content: space-between;
 }
 
+.image__wrapper,
 .engagement-image__wrapper {
     display: flex;
     align-items: center;
@@ -325,8 +340,92 @@ footer {
     transform: scaleX(-1);
 }
 
-@media only screen and (max-width: 1200px) {
-    
+/* Contact Me */
+
+.contact__container {
+    display: block;
+    border: 10px solid #EFD3D6;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 0 0 10px 10px;
+    max-width: 330px;
+    background-color: #EFD3D6;
+    margin-top: 40px;
+}
+
+.contact__title {
+    display: inline-block;
+}
+
+.contact__title h2 {
+    padding: 0 10px 0 0px;
+    margin: 5px 0;
+    color: black;
+}
+
+.contact__form {
+    padding: 10px 10px 0 0;
+}
+
+hr {
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+    height: 5px;
+    border: 0;
+    background-color: #FBFBFB;
+}
+
+input,
+textarea {
+    width: 100%;
+    border: 5px solid #FFFFFF;
+    border-radius: 5px;
+    resize: none;
+    padding: 0 5px;
+    box-sizing: border-box;
+    font-family: 'Open Sans' sans-serif;
+    font-size: 18px;
+    color: #25606f;
+}
+
+input[type="text"] {
+    padding: 0;
+    height: 40px;
+    width: 100%;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+.contact__form-input {
+    margin: 5px 0 10px 0;
+}
+
+.contact__form-textarea {
+    margin: 5px 0;
+    width: 100%;
+    height: 100px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    background-color: #9F6250;
+    border: 0;
+    color: #FBFBFB;
+    border: 5px solid #BE7C65;
+    border-radius: 5px;
+    margin: 10px 0 0 0;
+    font-family: 'Open Sans' sans-serif;
+    font-size: 22px;
+}
+
+input[type="button"]:hover {
+    background-color: #368da2;
+    border: #368da2;
 }
 
 @media only screen and (width: 1024px) {
@@ -417,7 +516,8 @@ footer {
     }
 
     /* Engagement photos */
-
+    
+    .image__container,
     .engagement-image__container {
         width: 78%;
     }
@@ -434,6 +534,7 @@ footer {
 
     .names {
         font-size: 37px;
+        margin-top: 40px;
     }
     
     .our-story__heading,
@@ -446,8 +547,9 @@ footer {
     }
 
     /* Engagement photos */
+    .image__container,
     .engagement-image__container {
-        width: 90%;
+        width:85%;
     }
 
     .engagement-image {
