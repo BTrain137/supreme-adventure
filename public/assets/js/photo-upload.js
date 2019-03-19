@@ -53,7 +53,8 @@ function getSignedRequest(file){
                 xhr.open("POST", "/contact-me", true);
                 xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
                 xhr.send(JSON.stringify({ "time": timeNow, "userAgent": navigator.userAgent }));
-        }
+            }
+        };
     };
     xhr.send();
 }

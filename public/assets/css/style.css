@@ -235,6 +235,40 @@ footer {
     margin-top: 200px;
 }
 
+.engagement-album__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.engagement-album__subtitle,
+.engagement-album__title {
+    font-family: "BodoniBertholdBQ RegSC";
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 5px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.engagement-album__title {
+    font-size: 24px;
+}
+
+
+.engagement-album-offset-2.guess-upload-cover {
+    height: 421px;
+    background-color: #EBC7CE;
+    display: flex;
+    align-items: center;
+}
+.guess-upload-title {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #A26452;
+}
+
 /******* Engagement photo ******/
 
 .image__container,
@@ -274,7 +308,7 @@ footer {
 }
 
 .engagement-album__container {
-    margin: 10px auto;
+    margin: 30px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

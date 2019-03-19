@@ -4,6 +4,7 @@ const path = require("path")
     , logger = require("morgan")
     , helper = require("./helpers/helper")
     , app = express()
+    , data = require("./data/images.json")
     , PORT = process.env.PORT || 3000;
 
 app.use(logger("dev"));
@@ -76,6 +77,13 @@ app.get("/get-engagement-photos-thumbnail", (req, res) =>{
     engagementPhotos.shift();
     res.json(engagementPhotos);
   });
+});
+
+app.get("/photos/:album", (req, res) => {
+  // "/get-wedding-photos-thumbnail/:folderName"
+  // Has been moved to here to make less request to AWS
+  const album = req.params.album;
+  return res.json(data[album]);
 });
 
 app.get("/get-wedding-photos-thumbnail/:folderName", (req, res) =>{

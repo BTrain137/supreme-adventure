@@ -101,15 +101,17 @@ document.addEventListener('touchstart', function (event) {
 });        
 
 (function getEngagementPhotos(){
-    console.log(folderName);
+    
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', `/get-wedding-photos-thumbnail/${folderName}-thumbnail`);
+    xhr.open('GET', `/photos/${folderName}`);
+    // xhr.open('GET', `/get-wedding-photos-thumbnail/${folderName}-thumbnail`);
     xhr.onreadystatechange = () => {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
+                    console.log(response);
                     response = JSON.parse(xhr.responseText);
                     let photoDiv = document.getElementById('photo-area');
-
+                    console.log(response);
                     response.forEach((photoURL, index) => {
                         let img = document.createElement('img');
                         let picture = document.createElement('picture');
