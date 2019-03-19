@@ -108,7 +108,6 @@ document.addEventListener('touchstart', function (event) {
     xhr.onreadystatechange = () => {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
-                    console.log(response);
                     response = JSON.parse(xhr.responseText);
                     let photoDiv = document.getElementById('photo-area');
                     console.log(response);
@@ -131,3 +130,19 @@ document.addEventListener('touchstart', function (event) {
     }
     xhr.send();
 })();
+
+//Scroll back to top.
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("to-top").style.display = "block";
+  } else {
+    document.getElementById("to-top").style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
