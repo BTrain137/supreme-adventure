@@ -34,6 +34,10 @@ app.get("/wedding-photos/:event", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/wedding-photos", `${req.params.event}.html`));
 });
 
+app.get("/videos", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public", "videos.html"));
+});
+
 app.get("/contact-me", (req, res) => {
   res.sendFile(path.join(__dirname, "./public", "contact-me.html"));
 });
