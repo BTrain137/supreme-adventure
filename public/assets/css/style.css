@@ -1,541 +1,543 @@
 @font-face {
-    font-family: "MrsEavesAllPetiteCaps Regular";
-    font-style: normal;
-    font-weight: 500;
-    src: local("MrsEavesAllPetiteCaps"), local('MrsEavesAllPetiteCaps'), url("../fonts/MrsEavesAllPetiteCaps-Regular.ttf") format('truetype');
+  font-family: "MrsEavesAllPetiteCaps Regular";
+  font-style: normal;
+  font-weight: 500;
+  src: local("MrsEavesAllPetiteCaps"), local("MrsEavesAllPetiteCaps"),
+    url("../fonts/MrsEavesAllPetiteCaps-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "MrsEavesAllPetiteCaps";
-    font-style: normal;
-    font-weight: 500;
-    src: local("MrsEavesAllPetiteCaps"), local('MrsEavesAllPetiteCaps'), url("../fonts/MrsEavesAllPetiteCaps-Regular.ttf") format('truetype');
-}
-
-  @font-face {
-    font-family: "Quickpen Regular";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Quickpen"), local('Quickpen'), url("../fonts/Quickpen-Regular.otf") format('opentype');
+  font-family: "MrsEavesAllPetiteCaps";
+  font-style: normal;
+  font-weight: 500;
+  src: local("MrsEavesAllPetiteCaps"), local("MrsEavesAllPetiteCaps"),
+    url("../fonts/MrsEavesAllPetiteCaps-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "Quickpen";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Quickpen"), local('Quickpen'), url("../fonts/Quickpen-Regular.otf") format('opentype');
+  font-family: "Quickpen Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Quickpen"), local("Quickpen"),
+    url("../fonts/Quickpen-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Quickpen";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Quickpen"), local("Quickpen"),
+    url("../fonts/Quickpen-Regular.otf") format("opentype");
 }
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 nav {
-    display: flex;
-    justify-content: center;
-    z-index: 1;
-    background-color: white;
-    padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  background-color: white;
+  padding-top: 20px;
 }
 
 nav a {
-    text-decoration: none;
-    color: black;
-    font-size: 22px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: 0 20px 10px;
-    font-weight: 100;
-    font-family: "BodoniBertholdBQ RegSC";
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0 20px 10px;
+  font-weight: 100;
+  font-family: "BodoniBertholdBQ RegSC";
 }
 
 nav a:hover {
-    color: #AC7663;
+  color: #ac7663;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .active {
-    color: #AC7663;
+  color: #ac7663;
 }
 
 .banner {
-    margin-bottom: -16%;
-    min-height: 34rem;
+  margin-bottom: -16%;
+  min-height: 34rem;
 }
 
 .name__container {
-    position: absolute;
-    top: 175px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-    
+  position: absolute;
+  top: 175px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
 }
 
 .banner__image {
-    z-index: -1;
-    height: 100%;
-    width: 100%;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
 }
 
 .names {
-    font-family: "BodoniBertholdBQ RegSC";
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-size: 54px;
-    color: #403a34;
-    margin: 0;
-    margin-top: 63px;
+  font-family: "BodoniBertholdBQ RegSC";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 54px;
+  color: #403a34;
+  margin: 0;
+  margin-top: 63px;
 }
 
 .and {
-    font-family: "Quickpen Regular";
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1;
-    text-transform: lowercase;
-    letter-spacing: normal;
-    font-size: 27.2px;
-    color: #403a34;
-    margin: 0 18px;
+  font-family: "Quickpen Regular";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  text-transform: lowercase;
+  letter-spacing: normal;
+  font-size: 27.2px;
+  color: #403a34;
+  margin: 0 18px;
 }
 
 .event {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    font-size: 40px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 40px;
 }
 
 .font-page__image--section,
 .our-story__section {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .front-page__image--container {
-    width: 70%;
-    overflow: hidden;
-    position: relative;            
-    box-sizing: border-box;
-    border: solid 8px #fff;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-    background-color: white;
+  width: 70%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  border: solid 8px #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  background-color: white;
 }
 
 .font-page__image {
-    display: block;
-    width: 120%;
-    margin-left: -10%;
+  display: block;
+  width: 120%;
+  margin-left: -10%;
 }
 
 .date__section {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 5%;
-    width: 93%;
-    margin: 4% auto;
-    min-height: 175px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5%;
+  width: 93%;
+  margin: 4% auto;
+  min-height: 175px;
 }
 
 .thank-you {
-    font-family: "Quickpen Regular";
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.4;
-    text-transform: none;
-    letter-spacing: 1px;
-    font-size: 22.4px;
-    color: #403a34;
-    margin: 0;
-    width: 100%;
+  font-family: "Quickpen Regular";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: 1px;
+  font-size: 22.4px;
+  color: #403a34;
+  margin: 0;
+  width: 100%;
 }
 
 .our-story__container {
-    text-align: center;
+  text-align: center;
 }
 
 .our-story__heading,
 .date,
 .our-story {
-    font-family: "MrsEavesAllPetiteCaps Regular";
-    font-weight: 400;
-    font-style: normal;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 54px;
-    color: #403a34;
-    line-height: 0.5em;
+  font-family: "MrsEavesAllPetiteCaps Regular";
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 54px;
+  color: #403a34;
+  line-height: 0.5em;
 }
 
 .our-story__image {
-    margin: -7rem 0 -3rem 0;
-    width: 23%;
+  margin: -7rem 0 -3rem 0;
+  width: 23%;
 }
 
 .our-story {
-    font-family: "BodoniBertholdBQ RegSC";
-    text-transform: none;
-    font-size: 25px;
-    display: inline-block;
-    width: 70%;
-    line-height: 1.2em;
+  font-family: "BodoniBertholdBQ RegSC";
+  text-transform: none;
+  font-size: 25px;
+  display: inline-block;
+  width: 70%;
+  line-height: 1.2em;
 }
 
 footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 18px;
-    background-color: #E5C8CC;
+  text-align: center;
+  margin-top: 40px;
+  padding: 18px;
+  background-color: #e5c8cc;
 }
 
 /* wedding-photo */
 
 .upload-photo__section {
-    text-align: center;
-    margin-top: 50px;
+  text-align: center;
+  margin-top: 50px;
 }
 
 .upload-input__wrapper {
-    text-align: center;
+  text-align: center;
 }
 
 #file-input {
-    display: block;
-    margin: 30px auto;
-    width: 236px;
+  display: block;
+  margin: 30px auto;
+  width: 236px;
 }
 
 #preview {
-    max-width: 200px;
+  max-width: 200px;
 }
 
 .loading-background {
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-    text-align: center;
-    position: fixed;
-    display: none;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  text-align: center;
+  position: fixed;
+  display: none;
 }
 
 .loading-gif {
-    max-width: 375px;
-    margin-top: 200px;
+  max-width: 375px;
+  margin-top: 200px;
 }
 
 .engagement-album__wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .engagement-album__subtitle,
 .engagement-album__title {
-    font-family: "BodoniBertholdBQ RegSC";
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: 5px;
-    text-align: center;
-    margin-bottom: 0;
+  font-family: "BodoniBertholdBQ RegSC";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 5px;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .engagement-album__title {
-    font-size: 24px;
-    width: 90%;
-    margin: 0 auto;
+  font-size: 24px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .engagement-album-offset-2.photo-booth-cover,
 .engagement-album-offset-2.guess-upload-cover {
-    height: 421px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 421px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .guess-upload-cover {
-    background-color: #EBC7CE;
-    color: #A26452;
+  background-color: #ebc7ce;
+  color: #a26452;
 }
 
 .photo-booth-cover {
-    background-color: #465953;
-    color: #FD635E;
+  background-color: #465953;
+  color: #fd635e;
 }
 
 .guess-upload-title {
-    font-size: 30px;
-    text-align: center;
-    font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
 }
 
 /******* Engagement photo ******/
 
 .image__container,
 .engagement-image__container {
-    margin: 10px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .image__wrapper,
 .engagement-image__wrapper {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .engagement-image {
-    width: 280px;
+  width: 280px;
 }
 
 .lg-engagement-image {
-    max-height: 96vh;
-    max-width: 95vw;
+  max-height: 96vh;
+  max-width: 95vw;
 }
 
 .lg-engagement-image,
 .engagement-image {
-    padding: 5px;
-    border-radius: 25px;
-    margin: 5px;
-    margin-top: 15px;
-    box-sizing: border-box;
-    border: solid 1px #fff;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-    background-color: white;
+  padding: 5px;
+  border-radius: 25px;
+  margin: 5px;
+  margin-top: 15px;
+  box-sizing: border-box;
+  border: solid 1px #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  background-color: white;
 }
 
 .engagement-album__container {
-    margin: 30px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .engagement-album-separator {
-    height: 435px;
-    width: 315px;
-    margin: 42px;
+  height: 435px;
+  width: 315px;
+  margin: 42px;
 }
 
 .engagement-album-offset-2,
 .engagement-album-offset,
 .engagement-album {
-    width: 280px;
-    height: auto;
-    position: absolute;
-    border: 2px solid black;
+  width: 280px;
+  height: auto;
+  position: absolute;
+  border: 2px solid black;
 }
 
 .engagement-album {
-    transform: rotate(-5deg);
+  transform: rotate(-5deg);
 }
 
 .engagement-album-offset {
-    transform: rotate(4deg);
+  transform: rotate(4deg);
 }
 
 .lg-image-container {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.25);
-    top: 0;
-    display: flex;
-    justify-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+  top: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .lg-engagement__wrapper {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .lg-image__left-arrow,
 .lg-image__right-arrow {
-    height: 100%;
-    width: 20%;
-    position: fixed;
-    top: 0;
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  top: 0;
 }
 
 .lg-image__left-arrow {
-    left: 30vw;
+  left: 30vw;
 }
 
 .lg-image__right-arrow {
-    right: 30vw;
+  right: 30vw;
 }
 
 .lg-image__right-arrow:hover,
 .lg-image__left-arrow:hover {
-    background-image: url(../images/arrow.png);
-    background-repeat: no-repeat;
-    background-position: center;
+  background-image: url(../images/arrow.png);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .lg-image__left-arrow:hover {
-    transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 #to-top {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    font-size: 18px;
-    border: none;
-    outline: none;
-    background-color: #DFAE90;
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 17px;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #dfae90;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 17px;
 }
 
 #to-top:hover {
-    background-color: #B4745F;
+  background-color: #b4745f;
 }
 
 /* Contact Me */
 
 .contact__container {
-    display: block;
-    border: 10px solid #EFD3D6;
-    border-radius: 10px;
-    margin: 0 auto;
-    padding: 0 0 10px 10px;
-    max-width: 330px;
-    background-color: #EFD3D6;
-    margin-top: 40px;
+  display: block;
+  border: 10px solid #efd3d6;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 0 0 10px 10px;
+  max-width: 330px;
+  background-color: #efd3d6;
+  margin-top: 40px;
 }
 
 .contact__title {
-    display: inline-block;
+  display: inline-block;
 }
 
 .contact__title h2 {
-    padding: 0 10px 0 0px;
-    margin: 5px 0;
-    color: black;
+  padding: 0 10px 0 0px;
+  margin: 5px 0;
+  color: black;
 }
 
 .contact__form {
-    padding: 10px 10px 0 0;
+  padding: 10px 10px 0 0;
 }
 
 hr {
-    width: 100%;
-    display: block;
-    margin: 5px 0;
-    height: 5px;
-    border: 0;
-    background-color: #FBFBFB;
+  width: 100%;
+  display: block;
+  margin: 5px 0;
+  height: 5px;
+  border: 0;
+  background-color: #fbfbfb;
 }
 
 input,
 textarea {
-    width: 100%;
-    border: 5px solid #FFFFFF;
-    border-radius: 5px;
-    resize: none;
-    padding: 0 5px;
-    box-sizing: border-box;
-    font-family: 'Open Sans' sans-serif;
-    font-size: 18px;
-    color: #25606f;
+  width: 100%;
+  border: 5px solid #ffffff;
+  border-radius: 5px;
+  resize: none;
+  padding: 0 5px;
+  box-sizing: border-box;
+  font-family: "Open Sans" sans-serif;
+  font-size: 18px;
+  color: #25606f;
 }
 
 input[type="text"] {
-    padding: 0;
-    height: 40px;
-    width: 100%;
+  padding: 0;
+  height: 40px;
+  width: 100%;
 }
 
 input:focus,
 textarea:focus {
-    outline: none;
+  outline: none;
 }
 
 .contact__form-input {
-    margin: 5px 0 10px 0;
+  margin: 5px 0 10px 0;
 }
 
 .contact__form-textarea {
-    margin: 5px 0;
-    width: 100%;
-    height: 100px;
+  margin: 5px 0;
+  width: 100%;
+  height: 100px;
 }
 
 input[type="submit"] {
-    width: 100%;
-    height: 50px;
-    background-color: #9F6250;
-    border: 0;
-    color: #FBFBFB;
-    border: 5px solid #BE7C65;
-    border-radius: 5px;
-    margin: 10px 0 0 0;
-    font-family: 'Open Sans' sans-serif;
-    font-size: 22px;
+  width: 100%;
+  height: 50px;
+  background-color: #9f6250;
+  border: 0;
+  color: #fbfbfb;
+  border: 5px solid #be7c65;
+  border-radius: 5px;
+  margin: 10px 0 0 0;
+  font-family: "Open Sans" sans-serif;
+  font-size: 22px;
 }
 
 input[type="button"]:hover {
-    background-color: #368da2;
-    border: #368da2;
+  background-color: #368da2;
+  border: #368da2;
 }
 
 /* Video Page */
 
 .video__container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 50px 10px;
-    height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 10px;
+  height: 500px;
 }
 
 .video__container iframe {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .video__wrapper {
-    width: 445px;
+  width: 445px;
 }
 
 .video__wrapper h3 {
-    text-align: center;
-    font-size: 25px;
+  text-align: center;
+  font-size: 25px;
 }
 
 .video__wrapper video {
-    width: 400px;
+  width: 400px;
 }
 
 @media only screen and (max-width: 1024px) {
+  /* Engagement photos */
 
-    /* Engagement photos */
-
-    .lg-image__left-arrow, 
-    .lg-image__right-arrow {
-        display:none;
-    }
-    /* .lg-image__right-arrow,
+  .lg-image__left-arrow,
+  .lg-image__right-arrow {
+    display: none;
+  }
+  /* .lg-image__right-arrow,
     .lg-image__left-arrow {
         background-image: url(../images/arrow.png);
         background-repeat: no-repeat;
@@ -549,21 +551,21 @@ input[type="button"]:hover {
 }
 
 @media only screen and (max-width: 990px) {
-    .banner {
-        min-height: 29rem;
-    }
+  .banner {
+    min-height: 29rem;
+  }
 
-    .names {
-        font-size: 45px;
-    }
+  .names {
+    font-size: 45px;
+  }
 
-    .front-page__image--container {
-        width: 80%;
-    }
+  .front-page__image--container {
+    width: 80%;
+  }
 
-    /* Engagement photos */
+  /* Engagement photos */
 
-    /* .lg-image__left-arrow, 
+  /* .lg-image__left-arrow, 
     .lg-image__right-arrow {
         width: 25%;
     }
@@ -594,85 +596,83 @@ input[type="button"]:hover {
 } */
 
 @media only screen and (max-width: 768px) {
-    .banner {
-        min-height: 22rem;
-    }
+  .banner {
+    min-height: 22rem;
+  }
 
-    nav a {
-        font-size: 20px;
-        margin: 2px;
-        padding-left: 2%;
-        padding-right: 2%;
-    }
+  nav a {
+    font-size: 20px;
+    margin: 2px;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
 
-    .name__container {
-        top: 120px;
-    }
+  .name__container {
+    top: 120px;
+  }
 
-    .names {
-        font-size: 40px;
-    }
-    
-    .our-story__heading,
-    .date {
-        font-size: 45px;
-    }
+  .names {
+    font-size: 40px;
+  }
 
+  .our-story__heading,
+  .date {
+    font-size: 45px;
+  }
 }
 
 @media only screen and (max-width: 649px) {
-    .banner {
-        min-height: 20rem;
-    }
+  .banner {
+    min-height: 20rem;
+  }
 
-    .name__container {
-        top: 110px;
-    }
+  .name__container {
+    top: 110px;
+  }
 
-    .names {
-        font-size: 37px;
-        margin-top: 40px;
-    }
-    
-    .our-story__heading,
-    .date {
-        font-size: 38px;
-    }
+  .names {
+    font-size: 37px;
+    margin-top: 40px;
+  }
 
-    .date__section {
-        min-height: unset;
-    }
+  .our-story__heading,
+  .date {
+    font-size: 38px;
+  }
 
-    /* Engagement photos */
+  .date__section {
+    min-height: unset;
+  }
 
-    .engagement-image {
-        width: 350px;
-    }
-    
+  /* Engagement photos */
+
+  .engagement-image {
+    width: 350px;
+  }
 }
 
 @media only screen and (max-width: 480px) {
-    .banner {
-        min-height: 16rem;
-    }
-    .name__container {
-        top: 88px;
-    } 
-    .names {
-        font-size: 32px;
-    }
-    
-    .date__container {
-        margin-top: 5%;
-    }
-    
-    .our-story__heading,
-    .date {
-        margin-top: 7%;
-    }
+  .banner {
+    min-height: 16rem;
+  }
+  .name__container {
+    top: 88px;
+  }
+  .names {
+    font-size: 32px;
+  }
 
-    /* Engagement photos */
-    /* .lg-image__right-arrow,
+  .date__container {
+    margin-top: 5%;
+  }
+
+  .our-story__heading,
+  .date {
+    margin-top: 7%;
+  }
+
+  /* Engagement photos */
+  /* .lg-image__right-arrow,
     .lg-image__left-arrow {
         background-image: url(../images/arrow.png);
         background-repeat: no-repeat;
@@ -684,10 +684,15 @@ input[type="button"]:hover {
         transform: scaleX(-1);
     } */
 
-    /* wedding photos */
+  /* wedding photos */
 
-    .upload-photo__section {
-        padding: 20px;
-        margin-top: 10px;
-    }
+  .upload-photo__section {
+    padding: 20px;
+    margin-top: 10px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .engagement-album__wrapper {
+    width: 100%;
+  }
 }
