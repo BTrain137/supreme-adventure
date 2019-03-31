@@ -36,7 +36,6 @@ nav {
     z-index: 1;
     background-color: white;
     padding-top: 20px;
-    margin-left: -15px;
 }
 
 nav a {
@@ -238,6 +237,7 @@ footer {
 .engagement-album__wrapper {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .engagement-album__subtitle,
@@ -253,6 +253,8 @@ footer {
 
 .engagement-album__title {
     font-size: 24px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .engagement-album-offset-2.photo-booth-cover,
@@ -283,7 +285,6 @@ footer {
 
 .image__container,
 .engagement-image__container {
-    width: 90%;
     margin: 10px auto;
     display: flex;
     flex-wrap: wrap;
@@ -294,6 +295,7 @@ footer {
 .engagement-image__wrapper {
     display: flex;
     align-items: center;
+    margin: 0 auto;
 }
 
 .engagement-image {
@@ -503,7 +505,13 @@ input[type="button"]:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 50px 220px;
+    padding: 50px 10px;
+    height: 500px;
+}
+
+.video__container iframe {
+    width: 100%;
+    height: 100%;
 }
 
 .video__wrapper {
@@ -610,12 +618,6 @@ input[type="button"]:hover {
         font-size: 45px;
     }
 
-    /* Engagement photos */
-    
-    .image__container,
-    .engagement-image__container {
-        width: 78%;
-    }
 }
 
 @media only screen and (max-width: 649px) {
@@ -642,13 +644,9 @@ input[type="button"]:hover {
     }
 
     /* Engagement photos */
-    .image__container,
-    .engagement-image__container {
-        width:85%;
-    }
 
     .engagement-image {
-        width: 330px;
+        width: 350px;
     }
     
 }
