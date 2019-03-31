@@ -19,26 +19,39 @@ const S3_BUCKET = process.env.S3_BUCKET;
 aws.config.region = process.env.AWS_REGION;
 
 app.get("/", (req, res) => {
+  helper.userCountLog("index");
   res.sendFile(path.join(__dirname, "./public", "index.html"));
 });
 
+app.get("/count", (req, res) => {
+  helper.getUserCountsLog("userCountLogs", function(result){
+    res.json(result);
+  });
+});
+
 app.get("/engagement-photos", (req, res) => {
+  helper.userCountLog("engagement-photos");
   res.sendFile(path.join(__dirname, "./public", "engagement-photos.html"));
 });
 
 app.get("/wedding-photos", (req, res) => {
+  helper.userCountLog("wedding-photos");
   res.sendFile(path.join(__dirname, "./public", "wedding-photos.html"));
 });
 
 app.get("/wedding-photos/:event", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/wedding-photos", `${req.params.event}.html`));
+  const { event } = req.params;
+  helper.userCountLog(`wedding-photos-${event}`);
+  res.sendFile(path.join(__dirname, "./public/wedding-photos", `${event}.html`));
 });
 
 app.get("/videos", (req, res) => {
+  helper.userCountLog("videos");
   res.sendFile(path.join(__dirname, "./public", "videos.html"));
 });
 
 app.get("/contact-me", (req, res) => {
+  helper.userCountLog("contact-me");
   res.sendFile(path.join(__dirname, "./public", "contact-me.html"));
 });
 
