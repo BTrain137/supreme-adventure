@@ -255,18 +255,28 @@ footer {
     font-size: 24px;
 }
 
-
+.engagement-album-offset-2.photo-booth-cover,
 .engagement-album-offset-2.guess-upload-cover {
     height: 421px;
-    background-color: #EBC7CE;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
+
+.guess-upload-cover {
+    background-color: #EBC7CE;
+    color: #A26452;
+}
+
+.photo-booth-cover {
+    background-color: #465953;
+    color: #FD635E;
+}
+
 .guess-upload-title {
     font-size: 30px;
     text-align: center;
     font-weight: bold;
-    color: #A26452;
 }
 
 /******* Engagement photo ******/
@@ -509,11 +519,15 @@ input[type="button"]:hover {
     width: 400px;
 }
 
-@media only screen and (width: 1024px) {
+@media only screen and (max-width: 1024px) {
 
     /* Engagement photos */
 
-    .lg-image__right-arrow,
+    .lg-image__left-arrow, 
+    .lg-image__right-arrow {
+        display:none;
+    }
+    /* .lg-image__right-arrow,
     .lg-image__left-arrow {
         background-image: url(../images/arrow.png);
         background-repeat: no-repeat;
@@ -523,7 +537,7 @@ input[type="button"]:hover {
 
     .lg-image__left-arrow {
         transform: scaleX(-1);
-    }
+    } */
 }
 
 @media only screen and (max-width: 990px) {
@@ -541,7 +555,7 @@ input[type="button"]:hover {
 
     /* Engagement photos */
 
-    .lg-image__left-arrow, 
+    /* .lg-image__left-arrow, 
     .lg-image__right-arrow {
         width: 25%;
     }
@@ -551,12 +565,12 @@ input[type="button"]:hover {
     }
     .lg-image__left-arrow {
         left: 25vw;
-    }
+    } */
 }
 
-@media only screen and (width: 768px) {
+/* @media only screen and (width: 768px) {
 
-    /* Engagement photos */
+    
 
     .lg-image__right-arrow,
     .lg-image__left-arrow {
@@ -569,7 +583,7 @@ input[type="button"]:hover {
     .lg-image__left-arrow {
         transform: scaleX(-1);
     }
-}
+} */
 
 @media only screen and (max-width: 768px) {
     .banner {
@@ -660,7 +674,7 @@ input[type="button"]:hover {
     }
 
     /* Engagement photos */
-    .lg-image__right-arrow,
+    /* .lg-image__right-arrow,
     .lg-image__left-arrow {
         background-image: url(../images/arrow.png);
         background-repeat: no-repeat;
@@ -670,7 +684,7 @@ input[type="button"]:hover {
 
     .lg-image__left-arrow {
         transform: scaleX(-1);
-    }
+    } */
 
     /* wedding photos */
 
