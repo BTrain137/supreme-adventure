@@ -1,4 +1,5 @@
 let response;
+let body = document.getElementsByTagName('body')[0];
 
 function getLgImgUrl(folderName, thumbnailURL){
     
@@ -44,7 +45,6 @@ function getNextPhoto() {
 };
 
 function viewLgImg(event) {
-    let body = document.getElementsByTagName('body')[0];
     let index = event.target.dataset.index;
     let highQualityUrl = getLgImgUrl(folderName, event.target.srcset);
 
@@ -70,13 +70,21 @@ function viewLgImg(event) {
     largePicture.appendChild(largeImage);
     div.appendChild(largePicture);
     body.appendChild(div);
+    //Stops page from scrolling;
+    body.setAttribute('style', 'overflow: hidden;')
 };
 
 document.addEventListener('click',function(event){
 
-    if (event.target && (event.target.classList == 'lg-image-container' || event.target.classList == 'lg-engagement-image' || event.target.classList == 'lg-engagement__wrapper')) {
+    if (event.target && event.target.classList == 'lg-image-container') {
         let lgImgContainer = document.getElementsByClassName('lg-image-container')[0];
         lgImgContainer.remove();
+        body.removeAttribute('style');
+    }
+    else if (event.target && event.target.classList == 'lg-engagement-image'){
+        let lgImgContainer = document.getElementsByClassName('lg-image-container')[0];
+        lgImgContainer.remove();
+        body.removeAttribute('style');
     }
     else if (event.target && event.target.classList == 'lg-image__right-arrow') {
         getNextPhoto();
@@ -92,13 +100,17 @@ document.addEventListener('click',function(event){
 
 // Mobile Touch event
 document.addEventListener('touchstart', function (event) {
-    if (event.target && event.target.classList == 'lg-image__right-arrow') {
-        getNextPhoto();
+    if (event.target && event.target.classList == 'lg-engagement__wrapper') {
+        let lgImgContainer = document.getElementsByClassName('lg-image-container')[0];
+        lgImgContainer.remove();
+        body.removeAttribute('style');
     }
-    else if (event.target && event.target.classList == 'lg-image__left-arrow') {
-        getPerviousPhoto();
-    }  
-});        
+    else if (event.target && event.target.classList == 'lg-image-container') {
+        let lgImgContainer = document.getElementsByClassName('lg-image-container')[0];
+        lgImgContainer.remove();
+        body.removeAttribute('style');
+    }
+});
 
 (function getEngagementPhotos(){
     
