@@ -110,7 +110,7 @@ document.addEventListener('touchstart', function (event) {
             if (xhr.status == 200) {
                     response = JSON.parse(xhr.responseText);
                     let photoDiv = document.getElementById('photo-area');
-                    console.log(response);
+                    // console.log(response);
                     response.forEach((photoURL, index) => {
                         let img = document.createElement('img');
                         let picture = document.createElement('picture');
@@ -131,10 +131,20 @@ document.addEventListener('touchstart', function (event) {
     xhr.send();
 })();
 
-//Scroll back to top.
-window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
+//Scroll back to top.
+const toTop = document.getElementById("to-top");
+const sections = document.getElementsByClassName("banner");
+
+const scrollIt = function(element) {  
+  window.scrollTo({
+    'behavior': 'smooth',
+    'left': 0,
+    'top': element.offsetTop
+  });
+}
+
+const scrollFunction = function() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     document.getElementById("to-top").style.display = "block";
   } else {
@@ -142,7 +152,8 @@ function scrollFunction() {
   }
 }
 
+window.onscroll = function() {scrollFunction()};
+
 function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  scrollIt(sections[0]);
 }
