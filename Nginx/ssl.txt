@@ -1,0 +1,9 @@
+# https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04
+
+$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt install python-certbot-nginx
+$ sudo ufw status
+$ sudo ufw allow 'Nginx Full'
+$ sudo ufw delete allow 'Nginx HTTP'
+$ sudo certbot --nginx -d bryan-kim.com -d www.bryan-kim.com
+$ sudo certbot renew --dry-run
