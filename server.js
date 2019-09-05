@@ -5,8 +5,8 @@ const path = require("path")
     , helper = require("./helpers/helper")
     , app = express()
     , data = require("./data/images.json")
-    , PORT = process.env.PORT || 3000;
-
+    , PORT = process.env.PORT || 3002
+    ;
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
