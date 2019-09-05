@@ -41,6 +41,9 @@ $ pm2 start npm --name bryan-kim.com -- run start
 ```
 
 ## Nginx
+```bash
+$ sudo vim /etc/nginx/site-available/fantasticheadband.bryan-kim.com
+```
 ```conf
 # /etc/nginx/sites-enabled/fantasticheadband.bryan-kim.com
 server {
@@ -61,9 +64,9 @@ server {
 }
 ```
 ```bash
-$ sudo vim /etc/nginx/site-available/fantasticheadband.bryan-kim.com
-# Configure the file with server and port 80 with the correct server_name
-# Also the port that the node server is running on
+$ sudo ln -s /etc/nginx/sites-available/fantasticheadband.bryan-kim.com /etc/nginx/sites-enabled/
+# Creating a sim link so Nginx can read from during startup
+
 $ sudo systemctl restart nginx
 $ systemctl status nginx.service
 # For status of the server and possible error logs
