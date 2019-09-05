@@ -18,14 +18,20 @@ $ cd client npm install && cd ..
 # had to set the production myself
 $ sudo npm run build
 # Build the optimize react production version
-$ sudo NODE_ENV=production node server.js
-# The script is stored within the package.json
-# "start-server": "NODE_ENV=production node server.js",
-# For pm2 to run the script
 ```
 
 ## Pm2
 ```bash
+# Normally the following executes on a local environment 
+# to evoke production mode
+$ sudo NODE_ENV=production node server.js
+
+## FOLLOWING: optional if pm2 ecosystem is used
+## These CMDs are to use to evoke each sub domain
+
+# The script is stored within the package.json
+# "start-server": "NODE_ENV=production node server.js",
+# For pm2 to run the script
 # While still inside the folder fantasticHeadBand
 $ pm2 start npm --name FantasticHeadBand -- run start-server
 # pm2 start npm --name "{app_name}" -- run {script_name}
@@ -34,7 +40,26 @@ $ pm2 start npm --name bryan-kim.com -- run start
 # To run other server
 ```
 
-## Nginx 
+## Nginx
+```conf
+# /etc/nginx/sites-enabled/fantasticheadband.bryan-kim.com
+server {
+    listen 80 default_server;
+    listen [::]:80;
+
+    server_name fantasticheadband.bryan-kim.com www.fantasticheadband.bryan-kim.com;
+
+    location / {
+         proxy_pass http://127.0.0.1:3001;
+         proxy_http_version 1.1;
+         proxy_set_header Upgrade $http_upgrade;
+         proxy_set_header Connection 'upgrade';
+         proxy_set_header Host $host;
+         proxy_cache_bypass $http_upgrade;
+    }
+
+}
+```
 ```bash
 $ sudo vim /etc/nginx/site-available/fantasticheadband.bryan-kim.com
 # Configure the file with server and port 80 with the correct server_name
@@ -48,4 +73,32 @@ $ systemctl status nginx.service
 ```bash
 $ sudo certbot --nginx -d fantasticheadband.bryan-kim.com
 # The cert box would do all the redirecting 
+```
+
+## Pm2 for many instance
+```js
+// /var/www/ecosystem.config.js
+module.exports = {
+  apps: [
+    {
+      name: "FantasticHeadBand",
+      cwd: "/var/www/fantasticHeadBand/",
+      script: "server.js",
+      env_production: {
+        NODE_ENV: "production",
+      }
+    },
+    {
+      name: "bryan-kim.com",
+      cwd: "/var/www/bryankim.com/",
+      script: "server.js",
+      env_production: {
+        NODE_ENV: "production",
+      }
+    }
+  ]
+};
+```
+```bash
+$ pm2 start ecosystem.config.js --env production
 ```
