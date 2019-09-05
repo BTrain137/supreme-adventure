@@ -4,7 +4,7 @@ server {
     listen 80 default_server;
     listen [::]:80;
 
-    server_name fantasticheadband.bryam-kim.com www.fantasticheadband.bryam-kim.com;
+    server_name fantasticheadband.bryan-kim.com www.fantasticheadband.bryan-kim.com;
 
     location / {
          proxy_pass http://127.0.0.1:3001;
