@@ -45,7 +45,7 @@ $ pm2 start npm --name bryan-kim.com -- run start
 $ sudo vim /etc/nginx/site-available/fantasticheadband.bryan-kim.com
 ```
 ```conf
-# /etc/nginx/sites-enabled/fantasticheadband.bryan-kim.com
+# /etc/nginx/sites-available/fantasticheadband.bryan-kim.com
 server {
     listen 80 default_server;
     listen [::]:80;
@@ -94,6 +94,14 @@ module.exports = {
     {
       name: "bryan-kim.com",
       cwd: "/var/www/bryankim.com/",
+      script: "server.js",
+      env_production: {
+        NODE_ENV: "production",
+      }
+    },
+    {
+      name: "shopify-app",
+      cwd: "/var/www/shopify/",
       script: "server.js",
       env_production: {
         NODE_ENV: "production",
