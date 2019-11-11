@@ -20,6 +20,14 @@ module.exports = {
       env_production: {
         NODE_ENV: "production",
       }
+    },
+    {
+      name: "shopify-app",
+      cwd: "/var/www/shopify-app/",
+      script: "server.js",
+      env_production: {
+        NODE_ENV: "production",
+      }
     }
   ]
 };
