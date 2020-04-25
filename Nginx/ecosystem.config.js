@@ -11,7 +11,7 @@ module.exports = {
       script: "server.js",
       env_production: {
         NODE_ENV: "production",
-      }
+      },
     },
     {
       name: "bryan-kim.com",
@@ -19,7 +19,7 @@ module.exports = {
       script: "server.js",
       env_production: {
         NODE_ENV: "production",
-      }
+      },
     },
     {
       name: "shopify-app",
@@ -27,7 +27,19 @@ module.exports = {
       script: "server.js",
       env_production: {
         NODE_ENV: "production",
-      }
-    }
-  ]
+      },
+    },
+  ],
+  deploy: {
+    production: {
+      user: "ubuntu",
+      key: "../EC2-wedding.pem",
+      host: ["ec2-35-169-209-116.compute-1.amazonaws.com"],
+      ref: "origin/master",
+      repo: "git@github.com:bryan89tran/supreme-adventure.git",
+      path: "/var/www/bryankim.com",
+      "post-deploy":
+        "npm install, pm2 startOrRestart ecosystem.json --env production",
+    },
+  },
 };
