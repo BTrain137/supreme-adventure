@@ -37,7 +37,7 @@ module.exports = {
       host: ["ec2-35-169-209-116.compute-1.amazonaws.com"],
       ref: "origin/master",
       repo: "git@github.com:bryan89tran/supreme-adventure.git",
-      path: "/var/www/bryankim.com",
+      path: "/var/www/bryankim.com/.",
       "post-deploy":
         "npm install, pm2 startOrRestart ecosystem.json --env production",
     },
