@@ -39,7 +39,7 @@ module.exports = {
       repo: "https://github.com/bryan89tran/supreme-adventure.git",
       path: "/var/www/bryankim.com",
       "post-deploy":
-        "npm install && pm2 startOrRestart ./../../ecosystem.config --env production",
+        "npm install && pm2 startOrRestart ./../../ecosystem.config.js --env production",
     },
   },
 };
