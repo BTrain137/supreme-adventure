@@ -15,7 +15,7 @@ module.exports = {
     },
     {
       name: "bryan-kim.com",
-      cwd: "/var/www/bryankim.com/",
+      cwd: "/var/www/bryankim.com/source",
       script: "server.js",
       env_production: {
         NODE_ENV: "production",
@@ -31,15 +31,15 @@ module.exports = {
     },
   ],
   deploy: {
-    production: {
+    "bryan-kim.com" : {
       user: "ubuntu",
       key: "../EC2-wedding.pem",
       host: ["ec2-35-169-209-116.compute-1.amazonaws.com"],
       ref: "origin/master",
-      repo: "git@github.com:bryan89tran/supreme-adventure.git",
+      repo: "https://github.com/bryan89tran/supreme-adventure.git",
       path: "/var/www/test",
       "post-deploy":
-        "npm install, pm2 startOrRestart ecosystem.json --env production",
+        "npm install && pm2 startOrRestart ./../../ecosystem.json --env production",
     },
   },
 };
