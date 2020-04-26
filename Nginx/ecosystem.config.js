@@ -31,15 +31,15 @@ module.exports = {
     },
   ],
   deploy: {
-    "bryan-kim.com" : {
+    "bryankim.com" : {
       user: "ubuntu",
       key: "../EC2-wedding.pem",
       host: ["ec2-35-169-209-116.compute-1.amazonaws.com"],
       ref: "origin/master",
       repo: "https://github.com/bryan89tran/supreme-adventure.git",
-      path: "/var/www/test",
+      path: "/var/www/bryankim.com",
       "post-deploy":
-        "npm install && pm2 startOrRestart ./../../ecosystem.json --env production",
+        "npm install && pm2 startOrRestart ./../../ecosystem.config --env production",
     },
   },
 };
